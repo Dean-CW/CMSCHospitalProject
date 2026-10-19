@@ -1,5 +1,9 @@
 public class Hospital {
-    private Patient[] patients = new Patient[1];
+    private Patient[] patients;
+
+    public Hospital(int numPatients) {
+        this.patients = new Patient[numPatients];
+    }
 
     private void assignPatientBeds(Patient pat){
 
@@ -9,7 +13,4 @@ public class Hospital {
 
     }
 
-    public Hospital() {
-
-    }
 }

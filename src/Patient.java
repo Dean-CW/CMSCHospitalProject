@@ -1,14 +1,17 @@
+import java.util.Random;
 public class Patient {
-    private Integer id = new Integer(); //TODO
+    private Integer id;
 
-    public int getId() {
+    public static Patient createPatient(){
+        Patient patient = new Patient();
+        patient.id = Math.abs(new Random().nextInt());
+        return patient;
+    }
+
+    public Integer getId() {
         return id;
     }
     public String toString(){
         return "I am patient " + id;
-    }
-
-    public Patient(){
-        id = 1;//TODO
     }
 }
