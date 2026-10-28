@@ -1,3 +1,5 @@
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Random;
 
 public class Thermometer extends Device {
@@ -7,7 +9,8 @@ public class Thermometer extends Device {
     {
         double humanMin = 82.0;
         double humanMax = 106.0;
-        return humanMin + (humanMax - humanMin) * randomTemp.nextDouble();
+        BigDecimal reading = new BigDecimal(humanMin + (humanMax - humanMin) * randomTemp.nextDouble()).setScale(1, RoundingMode.DOWN);
+        return reading.doubleValue();
     }
 
     @Override
