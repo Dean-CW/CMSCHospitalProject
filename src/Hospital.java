@@ -5,12 +5,18 @@ public class Hospital {
         this.patients = new Patient[numPatients];
     }
 
-    private void assignPatientBeds(Patient pat){
-
+    public void admitPatient(Patient patient){
+        for (int i = 0; i < patients.length; i++) {
+            if (patients[i] == null) {
+                patients[i] = patient;
+                System.out.println("Admitted patient with ID: " + patient.getId());
+                return;
+            }
+        }
     }
 
-    private void readPatientAlerts(){
-
+    public Patient[] getPatients() {
+        return patients;
     }
 
 }

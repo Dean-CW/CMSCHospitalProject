@@ -4,7 +4,7 @@ public class Patient {
 
     public static Patient createPatient(){
         Patient patient = new Patient();
-        patient.id = Math.abs(new Random().nextInt());
+        patient.id = new Random().nextInt(9000) + 1000; // Generate a random 4-digit ID
         return patient;
     }
 
@@ -14,4 +14,5 @@ public class Patient {
     public String toString(){
         return "I am patient " + id;
     }
+    
 }
