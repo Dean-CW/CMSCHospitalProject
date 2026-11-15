@@ -9,9 +9,14 @@ public class Alert {
     private AlertStatus status;
     private Observation observationDetails;
 
-    public Alert(Observation observation, Date timeReceived, Severity alertSeverity) {
+    public Alert(Observation observation, Date timeReceived) {
         received = timeReceived;
-        severity = alertSeverity;
+        if (observation.critical()) {
+            setSeverity(Severity.CRITICAL);
+
+        } else {
+            setSeverity(Severity.ROUTINE);
+        }
         observationDetails = observation;
         setStatus(AlertStatus.SUBMITTED);
     }
