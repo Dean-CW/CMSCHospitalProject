@@ -7,7 +7,6 @@ public class Simulation {
     private Hospital hospital;
     private Date baseDate = new Date();
     private Calendar calendar = Calendar.getInstance();
-    private Random rand;
 
     public Simulation() {
        // No-op
@@ -24,8 +23,7 @@ public class Simulation {
 
     public void setup() {
         //TODO:  read max beds property from parameters file
-        hospital = new Hospital();
-        rand = new Random();
+        hospital = new Hospital(150);
     }
 
     public void run(int hoursToRun) {
@@ -34,7 +32,9 @@ public class Simulation {
         System.out.println(calendar.getTime()); //Temporary logic to verify increment
         for (int i = 0; i <= totalIterations; i++) {
             calendar.add(Calendar.MINUTE, 10); // Increments by 10 minutes
-            //TODO:  execute logic of the simulation that is to occur every 10 minutes
+            hospital.readPatientDevices(calendar.getTime());
+            hospital.assignAlerts();
+            hospital.resolveAlerts(calendar);
         }
         System.out.println(calendar.getTime()); //Temporary logic to verify increment
 
