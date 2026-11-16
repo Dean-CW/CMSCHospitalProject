@@ -24,7 +24,7 @@ public class Simulation {
 
     public void setup() {
         //TODO:  read max beds property from parameters file
-        hospital = new Hospital();
+        hospital = new Hospital(150); //150 beds for patients seems to be the rough average for hospitals in the US
         rand = new Random();
     }
 

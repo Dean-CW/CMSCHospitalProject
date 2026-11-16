@@ -10,7 +10,7 @@ class ThermometerTest {
         Observation output = therm.reading();
         assertNotNull(output);
         assertSame(output.getClass(),Temperature.class);
-        String temp = output.data();
+        String temp = output.details();
         double o2Level = Double.parseDouble(temp.substring(temp.indexOf(": ")+2));
         assertTrue(o2Level <= 106.0 && o2Level >=82.0);
     }

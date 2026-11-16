@@ -10,7 +10,7 @@ class PulseOxymeterTest {
         Observation output = o2Monitor.reading();
         assertNotNull(output);
         assertSame(output.getClass(),O2Level.class);
-        String o2 = output.data();
+        String o2 = output.details();
         double o2Level = Double.parseDouble(o2.substring(o2.indexOf(": ")+2));
         assertTrue(o2Level <= 1 && o2Level >=.78);
     }

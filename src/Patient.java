@@ -4,18 +4,17 @@ public class Patient {
     private int age;
     private Device[] devices = new Device[4];
 
-    public static Patient createPatient(){
-        Patient patient = new Patient();
-        patient.id = new Random().nextInt(9000) + 1000; // Generate a random 4-digit ID
-        patient.age = new Random().nextInt(100);
-        return patient;
+    public Patient(){
+        id = new Random().nextInt(9000) + 1000; // Generate a random 4-digit ID
+        age = new Random().nextInt(100);
+        attachDevices();
     }
 
-    public static void attachDevices(Patient pat){
-        Patient.getDevices()[0] = new BloodPressureMonitor();
-        Patient.getDevices()[1] = new HeartRateMonitor();
-        Patient.getDevices()[2] = new Thermometer();
-        Patient.getDevices()[3] = new PulseOxyMeter();
+    public void attachDevices(){
+        getDevices()[0] = new BloodPressureMonitor();
+        getDevices()[1] = new HeartRateMonitor(getAge());
+        getDevices()[2] = new Thermometer();
+        getDevices()[3] = new PulseOxymeter();
     }
 
     public Integer getId() {
@@ -26,11 +25,11 @@ public class Patient {
         return age;
     }
 
-    public static Device[] getDevices() {
+    public Device[] getDevices() {
         return devices;
     }
 
-    public static void setDevices(Device[] devices) {
+    public void setDevices(Device[] devices) {
         this.devices = devices;
     }
     

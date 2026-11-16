@@ -10,7 +10,7 @@ class HeartRateMonitorTest {
         Observation output = monitor.reading();
         assertNotNull(output);
         assertSame(output.getClass(), HeartRate.class);
-        String heartRate = output.data().substring(output.data().indexOf(": ")+2);
+        String heartRate = output.details().substring(output.details().indexOf(": ")+2);
         int bpm = Integer.parseInt(heartRate);
         assertTrue(bpm >= 30 && bpm <= 220);
     }
