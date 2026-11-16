@@ -45,10 +45,10 @@ public class Hospital {
             while (resolvedPatientAlerts.count() > 0 && resolvedPatientAlerts.peek() != null) {
                 Alert processedAlert = resolvedPatientAlerts.dequeue();
                 if (processedAlert.getStatus() != AlertStatus.RESOLVED) {
-                    unresolvedAlerts.enqueue(processedAlert); //Put it in a queue to reprocess again
+                    processedPatientAlerts.enqueue(processedAlert); //Put it in a queue to reprocess again
                 } else {
-                    processedAlert.setResolved(calendar.getTime());
-                    resolvedAlerts.enqueue(processedAlert);
+                    processedAlert.setResolvedTime(calendar.getTime());
+                    processedPatientAlerts.enqueue(processedAlert);
                 }
                 System.out.print(processedAlert.toString() + "\n");
             }

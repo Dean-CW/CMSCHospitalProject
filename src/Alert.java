@@ -2,15 +2,14 @@
 import java.util.Date;
 
 public class Alert {
-    private Date received;  //TODO:  This type may need to change based on implementation
-    private int secondsElapsed = 0; //TODO:  This type may need to change based on implementation
-
+    private Date receivedTime;  //TODO:  This type may need to change based on implementation
+    private Date resolvedTime; //TODO:  This type may need to change based on implementation
     private Severity severity;
     private AlertStatus status;
     private Observation observationDetails;
 
     public Alert(Observation observation, Date timeReceived) {
-        received = timeReceived;
+        receivedTime = timeReceived;
         if (observation.critical()) {
             setSeverity(Severity.CRITICAL);
 
@@ -38,7 +37,7 @@ public class Alert {
                 break;
         }
         setStatus(AlertStatus.RESOLVED);
-        setSecondsElapsed();
+        setResolvedTime(new Date());
         return actionTaken;
     }
 
@@ -56,9 +55,13 @@ public class Alert {
         return severity;
     }
 
-    private void setSecondsElapsed()
+    public void setSeverity(Severity severity) {
+        this.severity = severity;
+    }
+
+    public void setResolvedTime(Date dateTime)
     {
-        secondsElapsed = 0;  //TODO:  Work out logic to determine time elapsed
+        setResolvedTime(dateTime);  //TODO:  Work out logic to determine time elapsed
     }
 
 

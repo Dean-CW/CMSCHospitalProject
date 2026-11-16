@@ -9,7 +9,7 @@ class AlertTest {
 
     @Test
     void testProcessCriticalAlert() {
-        Alert alert = new Alert(null, new Date(), Severity.CRITICAL);
+        Alert alert = new Alert(null, new Date());
         assertEquals(AlertStatus.SUBMITTED, alert.getStatus());
         assertEquals("Patient in critical state.  Notifying doctor!!", alert.processAlert());
         assertEquals(AlertStatus.RESOLVED, alert.getStatus());
@@ -17,7 +17,7 @@ class AlertTest {
 
     @Test
     void testProcessRoutineAlert() {
-        Alert alert = new Alert(null, new Date(), Severity.ROUTINE);
+        Alert alert = new Alert(null, new Date());
         assertEquals(AlertStatus.SUBMITTED, alert.getStatus());
         assertEquals("Patient in Normal Levels; nothing to do here", alert.processAlert());
         assertEquals(AlertStatus.RESOLVED, alert.getStatus());
@@ -25,13 +25,13 @@ class AlertTest {
 
     @Test
     void testGetStatus() {
-        Alert alert = new Alert(null, new Date(), Severity.ROUTINE);
+        Alert alert = new Alert(null, new Date());
         assertEquals(AlertStatus.SUBMITTED, alert.getStatus());
     }
 
     @Test
     void testGetSeverity() {
-        Alert alert = new Alert(null, new Date(), Severity.ROUTINE);
+        Alert alert = new Alert(null, new Date());
         assertEquals(Severity.ROUTINE, alert.getSeverity());
     }
 }
