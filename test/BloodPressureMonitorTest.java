@@ -10,7 +10,7 @@ class BloodPressureMonitorTest {
         Observation output = monitor.reading();
         assertNotNull(output);
         assertSame(output.getClass(),BloodPressure.class);
-        String bp = output.data();
+        String bp = output.details();
         int systolic = Integer.parseInt(bp.substring(bp.indexOf(" ")+1, bp.indexOf("/")));
         int diastolic = Integer.parseInt(bp.substring(bp.indexOf("/")+1));
         assertTrue(systolic <= 340 && systolic >=85);

@@ -11,9 +11,9 @@ public class HospitalTest {
     @Test
     void admitPatient_addsPatientsToHospital() {
         Hospital hospital = new Hospital(3);
-        Patient pat1 = Patient.createPatient();
-        Patient pat2 = Patient.createPatient();
-        Patient pat3 = Patient.createPatient();
+        Patient pat1 = new Patient();
+        Patient pat2 = new Patient();
+        Patient pat3 = new Patient();
         hospital.admitPatient(pat1);
         hospital.admitPatient(pat2);
         hospital.admitPatient(pat3);
