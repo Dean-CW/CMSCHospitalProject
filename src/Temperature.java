@@ -15,6 +15,6 @@ public class Temperature extends Observation {
 
     @Override
     public String details() {
-        return temp + "°F";
+        return "Temperature: " + temp + "°F";
     }
 }

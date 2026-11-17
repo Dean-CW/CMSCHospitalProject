@@ -1,6 +1,5 @@
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Random;
 
 public class Simulation {
 
@@ -10,10 +9,6 @@ public class Simulation {
 
     public Simulation() {
        // No-op
-    }
-
-    private int getRandomNumber() {
-        return rand.nextInt();
     }
 
     public Hospital getHospital()

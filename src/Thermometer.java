@@ -8,7 +8,7 @@ public class Thermometer extends Device {
     private double generateReading()
     {
         double humanMin = 82.0;
-        double humanMax = 106.0;
+        double humanMax = 110.0;
         BigDecimal reading = new BigDecimal(humanMin + (humanMax - humanMin) * randomTemp.nextDouble()).setScale(1, RoundingMode.DOWN);
         return reading.doubleValue();
     }

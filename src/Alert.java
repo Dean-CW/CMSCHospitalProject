@@ -37,7 +37,6 @@ public class Alert {
                 break;
         }
         setStatus(AlertStatus.RESOLVED);
-        setResolvedTime(new Date());
         return actionTaken;
     }
 
@@ -46,7 +45,7 @@ public class Alert {
         return status;
     }
 
-    private void setStatus(AlertStatus status)
+    public void setStatus(AlertStatus status)
     {
         this.status = status;
     }
@@ -61,7 +60,14 @@ public class Alert {
 
     public void setResolvedTime(Date dateTime)
     {
-        setResolvedTime(dateTime);  //TODO:  Work out logic to determine time elapsed
+       this.resolvedTime = dateTime;  //TODO:  Work out logic to determine time elapsed
+    }
+
+    public String toString() {
+        if(resolvedTime == null) {
+            return "Alert received at: " + receivedTime + ", resolved at: " + "UNRESOLVED" + ", severity: " + severity + ", status: " + status + ", details: " + observationDetails.details();
+        }
+        return "Alert received at: " + receivedTime + ", resolved at: " + resolvedTime + ", severity: " + severity + ", status: " + status + ", details: " + observationDetails.details();
     }
 
 

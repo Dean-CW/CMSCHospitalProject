@@ -19,7 +19,7 @@ public class HeartRate extends Observation{
 
     @Override
     public String details() {
-        return rate + " bpm";
+        return "Heartrate: " + rate + " bpm";
     }
 
 
